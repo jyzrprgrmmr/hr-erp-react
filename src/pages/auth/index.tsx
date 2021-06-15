@@ -1,5 +1,5 @@
 import { LockFilled, MailFilled, TeamOutlined } from '@ant-design/icons';
-import { Button, Card, Divider, Input } from 'antd';
+import { Button, Card, Divider, Form, Input } from 'antd';
 import React from 'react';
 import './auth.css';
 
@@ -34,12 +34,14 @@ const Login: React.FC = () => {
           <div className='text-4xl font-bold text-primary'>LOGIN HERE</div>
           <div>Enter your credentials here...</div>
 
-          <div className='flex flex-col my-5 gap-y-4'>
+          <Form>
+          <div className='flex flex-col my-5 gap-y-4 text-left'>
             <Input
               size='large'
               placeholder='Username or Email'
               prefix={<MailFilled className='text-gray-300' />}
             />
+            
             <Input.Password
               size='large'
               placeholder='Password'
@@ -47,9 +49,10 @@ const Login: React.FC = () => {
             />
           </div>
 
-          <Button type='primary' className='w-full h-10 text-xl font-semibold'>
+          <Button htmlType="submit" type='primary' className='w-full h-10 text-xl font-semibold'>
             LOGIN
           </Button>
+          </Form>
         </Card>
       </div>
     </div>

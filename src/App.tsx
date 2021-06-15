@@ -1,9 +1,9 @@
 import React from 'react';
-import Login from './pages/auth';
-
+import Layout from './components/layout/Layout';
 const App: React.FC = () => {
   return (
-    <Login/>
+    // <Login/>
+    <Layout/>
   );
 };
 
