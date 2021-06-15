@@ -16,17 +16,14 @@
 
 /* Your own custom utilities */
 @layer components {
-  .login-bg::before{
-    content:'';
-    position:absolute;
-    height: 100%;
-    width:100%;
+  /*! purgecss start ignore */
+  .login-bg::before {
+    position: absolute;
     background-image: url('../assets/images/loginbg.jpg');
-    opacity: .62;
-    background-size: cover;
+    opacity: 0.62;
     background-position: center center;
   }
-  /*! purgecss start ignore */
+
   svg {
     @apply align-baseline;
   }

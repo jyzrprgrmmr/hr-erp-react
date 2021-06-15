@@ -28,7 +28,7 @@ const Login: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className='relative grid col-span-8 login-bg place-items-center'>
+      <div className='relative grid w-full h-full col-span-8 bg-cover login-bg place-items-center'>
         <Card className='w-5/12 text-center'>
           <div className='text-4xl font-bold text-primary'>LOGIN HERE</div>
           <div>Enter your credentials here...</div>
