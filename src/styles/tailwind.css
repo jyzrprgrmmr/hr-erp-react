@@ -21,7 +21,7 @@
     position:absolute;
     height: 100%;
     width:100%;
-    background-image: url('../../assets/images/loginbg.jpg');
+    background-image: url('../assets/images/loginbg.jpg');
     opacity: .62;
     background-size: cover;
     background-position: center center;
