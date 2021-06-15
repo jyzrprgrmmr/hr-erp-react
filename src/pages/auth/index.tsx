@@ -1,6 +1,7 @@
 import { LockFilled, MailFilled, TeamOutlined } from '@ant-design/icons';
 import { Button, Card, Divider, Input } from 'antd';
 import React from 'react';
+import './auth.css';
 
 const Login: React.FC = () => {
   return (
