@@ -49,6 +49,7 @@ const SignIn: React.FC = () => {
       <Form.Item className='mt-4'>
         <Button
           className='w-full font-semibold'
+          loading={login.isLoading}
           type='primary'
           htmlType='submit'
         >
