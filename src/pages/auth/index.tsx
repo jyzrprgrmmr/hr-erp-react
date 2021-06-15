@@ -1,10 +1,6 @@
 import { Button, Card, Divider, Input } from 'antd';
 import React from 'react';
 import { LockFilled, MailFilled, TeamOutlined} from '@ant-design/icons';
-<<<<<<< HEAD
-import './Login.css';
-=======
->>>>>>> 4460ffae7fb718f5216b7d040d81960761983a74
 
 const Login: React.FC = () => {
     return (
@@ -48,8 +44,4 @@ const Login: React.FC = () => {
     );
 }
 
-<<<<<<< HEAD
 export default Login;
-=======
-export default Login;
->>>>>>> 4460ffae7fb718f5216b7d040d81960761983a74
