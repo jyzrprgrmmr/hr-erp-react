@@ -1,4 +1,13 @@
-import { ApartmentOutlined, ExportOutlined, LeftOutlined, MailOutlined, PhoneOutlined, PlusCircleOutlined, RightOutlined, SearchOutlined, TeamOutlined, UserOutlined } from '@ant-design/icons';
+import ApartmentOutlined from '@ant-design/icons/ApartmentOutlined';
+import ExportOutlined from '@ant-design/icons/ExportOutlined';
+import LeftOutlined from '@ant-design/icons/LeftOutlined';
+import MailOutlined from '@ant-design/icons/MailOutlined';
+import PhoneOutlined from '@ant-design/icons/PhoneOutlined';
+import PlusCircleOutlined from '@ant-design/icons/PlusCircleOutlined';
+import RightOutlined from '@ant-design/icons/RightOutlined';
+import SearchOutlined from '@ant-design/icons/SearchOutlined';
+import TeamOutlined from '@ant-design/icons/TeamOutlined';
+import UserOutlined from '@ant-design/icons/UserOutlined';
 import { Avatar, Button, Card, Divider, Input, Select } from 'antd';
 import React from 'react';
 import PageTitle from 'src/components/layout/PageTitle';

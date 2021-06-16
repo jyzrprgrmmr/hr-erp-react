@@ -1,19 +1,16 @@
-import { SettingOutlined } from '@ant-design/icons';
+import SettingOutlined from '@ant-design/icons/SettingOutlined';
 import React from 'react';
 import PageTitle from 'src/components/layout/PageTitle';
 
-interface indexProps{
-
-}
-
-const index: React.FC<indexProps> = () => {
-    return (
+const Administration: React.FC = () => {
+  return (
     <>
-        <PageTitle pageInfo={{icon: <SettingOutlined/> , title: 'Administration'}}/>
-        <div className="m-4">
-            Administration
-        </div></>
-    );
-}
+      <PageTitle
+        pageInfo={{ icon: <SettingOutlined />, title: 'Administration' }}
+      />
+      <div className='m-4'>Administration</div>
+    </>
+  );
+};
 
-export default index;
+export default Administration;

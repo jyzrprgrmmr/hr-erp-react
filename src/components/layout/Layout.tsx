@@ -1,9 +1,16 @@
-import { BellFilled, HomeOutlined, MenuUnfoldOutlined, SearchOutlined, SettingOutlined, TeamOutlined, UserOutlined } from '@ant-design/icons';
+import BellFilled from '@ant-design/icons/BellFilled';
+import HomeOutlined from '@ant-design/icons/HomeOutlined';
+import MenuFoldOutlined from '@ant-design/icons/MenuFoldOutlined';
+import MenuUnfoldOutlined from '@ant-design/icons/MenuUnfoldOutlined';
+import SearchOutlined from '@ant-design/icons/SearchOutlined';
+import SettingOutlined from '@ant-design/icons/SettingOutlined';
+import TeamOutlined from '@ant-design/icons/TeamOutlined';
+import UserOutlined from '@ant-design/icons/UserOutlined';
 import { Avatar, Input, Layout as AntLayout, Menu } from 'antd';
 import React, { useState } from 'react';
 import Administration from '../../pages/administration';
+import Dashboard from '../../pages/Dashboard';
 import Employees from '../../pages/employees';
-import Dashboard from '../../pages/homepage';
 import './layout.css';
 import { IActivePage } from './PageTitle';
 
@@ -55,7 +62,7 @@ const PageLayout: React.FC = ({ children }) => {
           <Header className="bg-white px-4 border-b-4 border-success flex justify-between items-center">
             <div className="flex gap-x-10 w-5/12">
               <div className="trigger cursor-pointer" onClick={toggleSider}>
-                {collapsed ? <MenuUnfoldOutlined/> : <MenuUnfoldOutlined/> }
+                {collapsed ? <MenuUnfoldOutlined/> : <MenuFoldOutlined/> }
               </div>
               <div className="flex-1" >
                 <Input placeholder="Enter keyword" suffix={<SearchOutlined/>}/>
