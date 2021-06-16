@@ -44,7 +44,7 @@ const Layout: React.FC = ({ children }) => {
   };
 
   return (
-    <AntLayout className='w-screen h-screen'>
+    <AntLayout className='w-screen h-screen fixed'>
       <Sider trigger={null} collapsible collapsed={collapsed}>
         <div className='grid w-full h-16 text-xl font-bold bg-white border-b-4 text-primary place-items-center border-success'>
           LOGO
@@ -89,7 +89,7 @@ const Layout: React.FC = ({ children }) => {
             />
           </div>
         </Header>
-        <Content>
+        <Content className="overflow-y-scroll">
           {activePage.title === 'Dashboard' && <Dashboard />}
           {activePage.title === 'Employees' && <Employees />}
           {activePage.title === 'Administration' && <Administration />}
