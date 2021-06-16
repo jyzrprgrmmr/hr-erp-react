@@ -38,7 +38,7 @@ const PageLayout: React.FC = ({ children }) => {
   }
   
   return (
-    <AntLayout className="h-screen w-screen">
+    <AntLayout className="h-screen w-screen fixed">
         <Sider trigger={null} collapsible collapsed={collapsed}>
           <div className="text-primary font-bold text-xl grid place-items-center h-16 w-full bg-white border-b-4 border-success">
             LOGO
@@ -58,7 +58,7 @@ const PageLayout: React.FC = ({ children }) => {
                 {collapsed ? <MenuUnfoldOutlined/> : <MenuUnfoldOutlined/> }
               </div>
               <div className="flex-1" >
-                <Input placeholder="Enter keyword"prefix={<SearchOutlined/>}/>
+                <Input placeholder="Enter keyword" suffix={<SearchOutlined/>}/>
               </div>
             </div>
             <div className="flex gap-x-4">
@@ -66,7 +66,7 @@ const PageLayout: React.FC = ({ children }) => {
               <Avatar icon={<UserOutlined className="text-primary cursor-pointer hover:text-white transition-all"/>}/>
             </div>
           </Header>
-          <Content>
+          <Content className="overflow-y-scroll">
             {activePage.title === "Dashboard" && <Dashboard/>}
             {activePage.title === "Employees" && <Employees/>}
             {activePage.title === "Administration" && <Administration/>}
