@@ -2,13 +2,12 @@ import { MailFilled, TeamOutlined } from '@ant-design/icons';
 import { Card, Divider } from 'antd';
 import React from 'react';
 import { Text } from 'src/components/Text';
+import './auth.css';
 import SignIn from './form/SignIn';
-import AuthLayout from './layout';
-import './style/auth.css';
 
 const Login: React.FC = () => {
   return (
-    <AuthLayout>
+    <div className='relative grid w-screen h-screen grid-cols-12 overflow-hidden bg-primary'>
       <div className='relative flex flex-col items-center col-span-4 p-10 mt-20 shadow-xl bg-primary gap-y-5'>
         <div className='flex flex-col items-center justify-center w-full'>
           <Text className='font-bold text-white text-7xl'>LOGO</Text>
@@ -41,7 +40,7 @@ const Login: React.FC = () => {
           <SignIn />
         </Card>
       </div>
-    </AuthLayout>
+    </div>
   );
 };
 

@@ -1,26 +1,28 @@
 import { TeamOutlined } from '@ant-design/icons';
+import PlusOutlined from '@ant-design/icons/PlusOutlined';
 import { Button } from 'antd';
 import React from 'react';
 import PageTitle from 'src/components/layout/PageTitle';
 
-interface indexProps{
-
-}
-
-const Index: React.FC<indexProps> = () => {
-
-    const buttons = 
+const Employees: React.FC = () => {
+  return (
     <>
-    <Button type="primary">Add</Button>
+      <PageTitle
+        pageInfo={{ icon: <TeamOutlined />, title: 'Employees' }}
+        extra={
+          <Button
+            className='text-xs'
+            icon={<PlusOutlined />}
+            type='dashed'
+            size='small'
+          >
+            Add Employee
+          </Button>
+        }
+      />
+      <div className='m-4'>Employee List</div>
     </>
+  );
+};
 
-    return (
-    <>
-        <PageTitle pageInfo={{icon: <TeamOutlined/> , title: 'Employees'}} extra={buttons}/>
-        <div className="m-4">
-            Employee List
-        </div>
-    </>);
-}
-
-export default Index;
+export default Employees;
