@@ -1,4 +1,5 @@
 import ApartmentOutlined from '@ant-design/icons/ApartmentOutlined';
+import AppstoreOutlined from '@ant-design/icons/AppstoreOutlined';
 import ExportOutlined from '@ant-design/icons/ExportOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import MailOutlined from '@ant-design/icons/MailOutlined';
@@ -7,6 +8,7 @@ import PlusCircleOutlined from '@ant-design/icons/PlusCircleOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
 import TeamOutlined from '@ant-design/icons/TeamOutlined';
+import UnorderedListOutlined from '@ant-design/icons/UnorderedListOutlined';
 import UserOutlined from '@ant-design/icons/UserOutlined';
 import { Avatar, Button, Card, Divider, Input, Select } from 'antd';
 import React from 'react';
@@ -102,8 +104,8 @@ const Employees: React.FC = () => {
 
         <div className='flex items-center justify-between'>
           <div className='flex gap-x-2'>
-            {/* <Button type="primary" icon={<AppstoreOutlined/>}/>
-                    <Button type="default" icon={<UnorderedListOutlined/>}/> */}
+            <Button type="primary" icon={<AppstoreOutlined/>}/>
+            <Button type="default" icon={<UnorderedListOutlined/>}/>
           </div>
           <div className='flex gap-x-2'>
             <Button type='default' icon={<LeftOutlined />} />

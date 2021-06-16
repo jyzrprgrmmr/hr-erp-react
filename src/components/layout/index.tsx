@@ -89,7 +89,7 @@ const Layout: React.FC = ({ children }) => {
             />
           </div>
         </Header>
-        <Content className="overflow-y-scroll">
+        <Content className="overflow-y-auto">
           {activePage.title === 'Dashboard' && <Dashboard />}
           {activePage.title === 'Employees' && <Employees />}
           {activePage.title === 'Administration' && <Administration />}
