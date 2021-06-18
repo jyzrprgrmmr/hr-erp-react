@@ -4,17 +4,17 @@ import BusinessConfig from './BusinessConfig';
 import BusinessList from './BusinessList';
 
 const Business: React.FC = () => {
-    const [activeBusinessConfig,setActiveBusinessConfig]=useState<number>();
+  const [activeBusinessConfig, setActiveBusinessConfig] = useState<number>();
 
-    return (
-        <>
-            {!activeBusinessConfig ?
-                <BusinessList setActiveBusinessConfig={setActiveBusinessConfig}/> 
-                : 
-                <BusinessConfig setActiveBusinessConfig={setActiveBusinessConfig}/>
-            }
-        </>
-    );
-}
+  return (
+    <>
+      {!activeBusinessConfig ? (
+        <BusinessList setActiveBusinessConfig={setActiveBusinessConfig} />
+      ) : (
+        <BusinessConfig setActiveBusinessConfig={setActiveBusinessConfig} />
+      )}
+    </>
+  );
+};
 
 export default Business;

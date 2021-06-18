@@ -14,7 +14,7 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
     <Route
       {...rest}
       render={(props) => {
-        if (true) {
+        if (false) {
           return (
             <Redirect
               to={{

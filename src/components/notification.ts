@@ -1,8 +1,8 @@
 import { notification as AntNotification } from 'antd';
-import React from 'react';
+import { ReactNode } from 'react';
 
 export const notification = (data: {
-  icon: React.ReactNode;
+  icon: ReactNode;
   message: string;
   description: string;
 }) => {

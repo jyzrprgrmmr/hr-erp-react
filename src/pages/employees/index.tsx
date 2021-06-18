@@ -104,8 +104,8 @@ const Employees: React.FC = () => {
 
         <div className='flex items-center justify-between'>
           <div className='flex gap-x-2'>
-            <Button type="primary" icon={<AppstoreOutlined/>}/>
-            <Button type="default" icon={<UnorderedListOutlined/>}/>
+            <Button type='primary' icon={<AppstoreOutlined />} />
+            <Button type='default' icon={<UnorderedListOutlined />} />
           </div>
           <div className='flex gap-x-2'>
             <Button type='default' icon={<LeftOutlined />} />

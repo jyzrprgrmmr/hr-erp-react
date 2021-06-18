@@ -2,11 +2,17 @@ import MailFilled from '@ant-design/icons/MailFilled';
 import TeamOutlined from '@ant-design/icons/TeamOutlined';
 import { Card, Divider } from 'antd';
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import { Text } from 'src/components/Text';
 import './auth.css';
 import SignIn from './form/SignIn';
+import { validAuthRoutes } from './validAuthRoutes';
 
 const Login: React.FC = () => {
+  if (!validAuthRoutes()) {
+    return <Redirect to='/auth/login' />;
+  }
+
   return (
     <div className='relative grid w-screen h-screen grid-cols-12 overflow-hidden bg-primary'>
       <div className='relative flex flex-col items-center col-span-4 p-10 mt-20 shadow-xl bg-primary gap-y-5'>
