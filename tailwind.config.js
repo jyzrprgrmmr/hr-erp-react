@@ -7,7 +7,10 @@ module.exports = {
         xs: '320px',
       },
       colors: {
-        primary: '#f99d3a',
+        primary: '#03363d',
+        danger: '#e55239',
+        success: '#33c175',
+        warning: '#f1b24a',
       },
       fontFamily: {
         pop: ['Poppins'],
