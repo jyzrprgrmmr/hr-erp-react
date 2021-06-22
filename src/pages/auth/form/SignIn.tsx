@@ -6,7 +6,8 @@ import React from 'react';
 import { useMutation } from 'react-query';
 import { notification } from 'src/components/notification';
 import { HttpError } from 'src/services/http-service';
-import { AuthAPI, SignInDTO } from '../api/auth';
+import { AuthAPI } from '../api/auth';
+import { LoginDTO } from '../interface/login-dto';
 
 const SignIn: React.FC = () => {
   const login = useMutation(AuthAPI.login, {
@@ -23,7 +24,7 @@ const SignIn: React.FC = () => {
     <Form
       className='my-5'
       name='sign-in-form'
-      onFinish={async (values: SignInDTO) => {
+      onFinish={async (values: LoginDTO) => {
         await login.mutateAsync(values);
       }}
       layout='vertical'
