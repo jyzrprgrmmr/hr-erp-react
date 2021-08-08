@@ -1,18 +1,25 @@
-import axios, { AxiosError, AxiosRequestConfig } from 'axios';
+import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 
 export interface HttpError extends AxiosError {}
 
 const removedUndefinedProperty = <T extends object>(obj: T) => {
   for (let key in obj) {
     if (obj.hasOwnProperty(key)) {
-      if (obj && obj[key] === undefined) {
+      const IS_NOTHING =
+        (obj && obj[key] === undefined) ||
+        obj[key] === null ||
+        String(obj[key])?.length === 0;
+
+      if (IS_NOTHING) {
         delete obj[key];
       }
     }
   }
 };
 
-export const httpService = async (config: AxiosRequestConfig): Promise<any> => {
+export const httpService = async <T>(
+  config: AxiosRequestConfig
+): Promise<AxiosResponse<T>> => {
   if (process.env.NODE_ENV === 'production') {
     config.baseURL = process.env.REACT_APP_API_BASE_URL;
   }

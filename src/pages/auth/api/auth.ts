@@ -3,8 +3,8 @@ import { LoginDTO } from '../interface/login-dto';
 import { LoginResponse } from '../interface/login-response';
 
 export class AuthAPI {
-  static async login(data: LoginDTO): Promise<LoginResponse> {
-    const login = await httpService({
+  static async login(data: LoginDTO) {
+    const login = await httpService<LoginResponse>({
       url: '/api/auth/login',
       method: 'POST',
       data,
