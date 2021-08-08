@@ -1,8 +1,6 @@
 import { HttpError } from 'src/services/http-service';
 
 export const ApiError = (error: HttpError) => {
-  console.log(error.response);
-
   if (typeof error.response?.data === 'string') {
     return error.response.data;
   }
