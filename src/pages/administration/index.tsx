@@ -1,6 +1,7 @@
 import ProjectOutlined from '@ant-design/icons/ProjectOutlined';
 import SettingOutlined from '@ant-design/icons/SettingOutlined';
 import TagOutlined from '@ant-design/icons/TagOutlined';
+import { GearIcon } from '@primer/octicons-react';
 import Card from 'antd/lib/card';
 import React, { useState } from 'react';
 import PageTitle from 'src/components/layout/PageTitle';
@@ -27,9 +28,7 @@ const Administration: React.FC = () => {
 
   return (
     <>
-      <PageTitle
-        pageInfo={{ icon: <SettingOutlined />, title: 'Administration' }}
-      />
+      <PageTitle pageInfo={{ icon: <GearIcon />, title: 'Administration' }} />
       <div className='relative grid grid-cols-12 m-4 gap-x-4'>
         <Card
           className='sticky top-0 col-span-2 h-52'

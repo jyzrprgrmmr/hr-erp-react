@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 export interface ProtectedRouteProps {
   path: string;
@@ -14,16 +14,16 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
     <Route
       {...rest}
       render={(props) => {
-        if (true) {
-          return (
-            <Redirect
-              to={{
-                pathname: '/auth/login',
-                state: { from: props.location },
-              }}
-            />
-          );
-        }
+        // if (true) {
+        //   return (
+        //     <Redirect
+        //       to={{
+        //         pathname: '/auth/login',
+        //         state: { from: props.location },
+        //       }}
+        //     />
+        //   );
+        // }
         return <Component {...props} />;
       }}
     />

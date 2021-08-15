@@ -1,31 +1,45 @@
-import ApartmentOutlined from '@ant-design/icons/ApartmentOutlined';
 import AppstoreOutlined from '@ant-design/icons/AppstoreOutlined';
-import ExportOutlined from '@ant-design/icons/ExportOutlined';
-import LeftOutlined from '@ant-design/icons/LeftOutlined';
-import MailOutlined from '@ant-design/icons/MailOutlined';
-import PhoneOutlined from '@ant-design/icons/PhoneOutlined';
-import PlusCircleOutlined from '@ant-design/icons/PlusCircleOutlined';
-import RightOutlined from '@ant-design/icons/RightOutlined';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
-import TeamOutlined from '@ant-design/icons/TeamOutlined';
 import UnorderedListOutlined from '@ant-design/icons/UnorderedListOutlined';
-import UserOutlined from '@ant-design/icons/UserOutlined';
+import {
+  DesktopDownloadIcon,
+  DeviceMobileIcon,
+  MentionIcon,
+  PeopleIcon,
+  PersonAddIcon,
+  PersonIcon,
+  TriangleLeftIcon,
+  TriangleRightIcon,
+  WorkflowIcon,
+} from '@primer/octicons-react';
 import { Avatar, Button, Card, Divider, Input, Select } from 'antd';
 import React from 'react';
 import PageTitle from 'src/components/layout/PageTitle';
-
+import './employees.css';
 const { Option } = Select;
 
 const Employees: React.FC = () => {
   const buttons = (
     <div className='flex gap-x-2'>
-      <Button icon={<PlusCircleOutlined />} type='dashed'>
+      <Button
+        className='flex items-center gap-x-1'
+        icon={<PersonAddIcon />}
+        type='dashed'
+      >
         Add Employee
       </Button>
-      <Button icon={<ExportOutlined />} type='primary'>
+      <Button
+        className='flex items-center gap-x-1'
+        icon={<DesktopDownloadIcon />}
+        type='primary'
+      >
         Export
       </Button>
-      <Button icon={<ApartmentOutlined />} type='primary'>
+      <Button
+        className='flex items-center gap-x-1'
+        icon={<WorkflowIcon />}
+        type='primary'
+      >
         Org. Chart
       </Button>
     </div>
@@ -33,43 +47,41 @@ const Employees: React.FC = () => {
 
   const employeeCard = (
     <Card
-      className='shadow-md'
+      className='shadow-md overflow-hidden'
       hoverable
-      bodyStyle={{ paddingLeft: '14px', paddingRight: '14px' }}
+      bodyStyle={{ padding: 0 }}
     >
-      <div className='flex items-center gap-x-2'>
-        <Avatar
-          className='w-10 h-10 bg-primary'
-          icon={
-            <UserOutlined className='grid w-10 h-10 text-2xl place-items-center' />
-          }
-        />
-        <div>
-          <h3 className='text-lg font-semibold text-primary'>Joezer Cenabre</h3>
-          <h3 className='text-sm text-primary'>Pangalso</h3>
+      <div className='rounded-t-sm relative z-10 bg-primary employee-card'>
+        <div className='flex items-center gap-x-2 p-4'>
+          <Avatar
+            className='w-10 h-10 flex items-center justify-center'
+            icon={<PersonIcon className='text-primary' />}
+          />
+          <div className='flex-1 border-l pl-2 border-success'>
+            <h3 className='text-md font-semibold text-white'>Joezer Cenabre</h3>
+            <div className='text-xs text-white'>Business Analyst</div>
+          </div>
         </div>
       </div>
 
-      <Divider className='my-2 bg-success' />
-
-      <ul className='grid gap-y-2'>
+      <ul className='grid gap-y-2 p-4'>
         <li className='flex items-center gap-x-3'>
-          <TeamOutlined /> Jane Doe
+          <PeopleIcon className='text-success' /> Jane Doe
         </li>
         <li className='flex items-center gap-x-3'>
-          <PhoneOutlined /> 09123456789
+          <DeviceMobileIcon className='text-success' /> 09123456789
         </li>
         <li className='flex items-center gap-x-3'>
-          <MailOutlined /> mail@mail.com
+          <MentionIcon className='text-success' /> mail@mail.com
         </li>
       </ul>
     </Card>
   );
 
   return (
-    <>
+    <div className='relative'>
       <PageTitle
-        pageInfo={{ icon: <TeamOutlined />, title: 'Employees' }}
+        pageInfo={{ icon: <PeopleIcon />, title: 'Employees' }}
         extra={buttons}
       />
 
@@ -108,8 +120,16 @@ const Employees: React.FC = () => {
             <Button type='default' icon={<UnorderedListOutlined />} />
           </div>
           <div className='flex gap-x-2'>
-            <Button type='default' icon={<LeftOutlined />} />
-            <Button type='primary' icon={<RightOutlined />} />
+            <Button
+              type='default'
+              className='flex items-center justify-center'
+              icon={<TriangleLeftIcon />}
+            />
+            <Button
+              type='primary'
+              className='flex items-center justify-center'
+              icon={<TriangleRightIcon />}
+            />
           </div>
         </div>
 
@@ -124,7 +144,7 @@ const Employees: React.FC = () => {
           {employeeCard}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

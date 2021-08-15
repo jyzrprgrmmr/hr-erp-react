@@ -1,0 +1,11 @@
+.employee-card::before {
+  content: '';
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background: url('https://images.pexels.com/photos/288477/pexels-photo-288477.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+  background-size: cover;
+  background-position: top center;
+  opacity: 0.1;
+  z-index: 1;
+}

@@ -13,9 +13,9 @@ interface PageTitleProps {
 
 const PageTitle: React.FC<PageTitleProps> = ({ pageInfo, extra }) => {
   return (
-    <div className='flex items-center justify-between h-12 p-2 px-4 shadow-md bg-primary bg-opacity-10'>
-      <div className='flex gap-x-2'>
-        <div>{pageInfo.icon}</div>
+    <div className='sticky top-0 z-50 flex items-center justify-between bg-gray-200 h-11 py-2 px-4 shadow-md border-t border-b  border-success mb-8'>
+      <div className='flex gap-x-2 items-center'>
+        {pageInfo.icon}
         <div className='font-semibold'>{pageInfo.title}</div>
       </div>
       <div>{extra}</div>

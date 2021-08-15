@@ -1,33 +1,33 @@
-import BellFilled from '@ant-design/icons/BellFilled';
-import HomeOutlined from '@ant-design/icons/HomeOutlined';
-import MenuFoldOutlined from '@ant-design/icons/MenuFoldOutlined';
-import MenuUnfoldOutlined from '@ant-design/icons/MenuUnfoldOutlined';
-import SearchOutlined from '@ant-design/icons/SearchOutlined';
-import SettingOutlined from '@ant-design/icons/SettingOutlined';
-import TeamOutlined from '@ant-design/icons/TeamOutlined';
-import UserOutlined from '@ant-design/icons/UserOutlined';
-import { Avatar, Input, Layout as AntLayout, Menu } from 'antd';
+import {
+  BellIcon,
+  GearIcon,
+  HomeIcon,
+  PeopleIcon,
+  PersonIcon,
+  ThreeBarsIcon,
+  TriangleDownIcon,
+} from '@primer/octicons-react';
+import { Layout as AntLayout, Menu } from 'antd';
 import { Location } from 'history';
 import React, { useState } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import './layout.css';
 import { IActivePage } from './PageTitle';
-
 const { Header, Sider, Content } = AntLayout;
 
 const menuList = [
   {
-    icon: <HomeOutlined />,
+    icon: <HomeIcon />,
     link: '/dashboard',
     title: 'Dashboard',
   },
   {
-    icon: <TeamOutlined />,
+    icon: <PeopleIcon />,
     link: '/employees',
     title: 'Employees',
   },
   {
-    icon: <SettingOutlined />,
+    icon: <GearIcon />,
     link: '/administration',
     title: 'Administration',
   },
@@ -47,8 +47,13 @@ const Layout: React.FC = ({ children }) => {
 
   return (
     <AntLayout className='fixed w-screen h-screen'>
-      <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className='grid w-full h-16 text-xl font-bold bg-white border-b-4 text-primary place-items-center border-success'>
+      <Sider
+        trigger={null}
+        collapsible
+        collapsed={collapsed}
+        className='shadow-lg'
+      >
+        <div className='grid bg-white w-full h-16 text-xl font-bold text-primary place-items-center border-success'>
           LOGO
         </div>
         <Menu
@@ -58,41 +63,39 @@ const Layout: React.FC = ({ children }) => {
           defaultSelectedKeys={[pathLocation(location)]}
         >
           {menuList.map((item: IActivePage) => (
-            <Menu.Item className='p-0 m-0' key={item.link} icon={item.icon}>
-              <NavLink to={item.link} />
-              {item.title}
+            <Menu.Item className='p-0 m-0' key={item.link} title={item.title}>
+              <NavLink
+                to={item.link}
+                className='flex items-center gap-x-2 h-full'
+              >
+                {item.icon}
+                <span className={`${collapsed && 'hidden'}`}>{item.title}</span>
+              </NavLink>
             </Menu.Item>
           ))}
         </Menu>
       </Sider>
       <AntLayout>
-        <Header className='flex items-center justify-between px-4 bg-white border-b-4 border-success'>
+        <Header className='flex items-center justify-between px-4 bg-white'>
           <div className='flex w-5/12 gap-x-10'>
             <div
-              className='cursor-pointer trigger'
+              className='cursor-pointer trigger flex items-center'
               onClick={() => setCollapsed(!collapsed)}
             >
-              {collapsed ? (
-                <MenuUnfoldOutlined className='text-base' />
-              ) : (
-                <MenuFoldOutlined className='text-base' />
-              )}
-            </div>
-            <div className='flex-1'>
-              <Input placeholder='Enter keyword' prefix={<SearchOutlined />} />
+              <ThreeBarsIcon />
             </div>
           </div>
-          <div className='flex gap-x-4'>
-            <Avatar
-              icon={
-                <BellFilled className='transition-all cursor-pointer text-primary hover:text-white' />
-              }
-            />
-            <Avatar
-              icon={
-                <UserOutlined className='transition-all cursor-pointer text-primary hover:text-white' />
-              }
-            />
+          <div className='flex gap-x-4 items-center'>
+            <div className='flex items-center hover:text-gray-500 cursor-pointer'>
+              <BellIcon />
+            </div>
+            <div className='flex items-center gap-x-1 hover:text-gray-500 cursor-pointer'>
+              <PersonIcon />
+              <div className='flex items-center'>
+                <>John Doe</>
+                <TriangleDownIcon />
+              </div>
+            </div>
           </div>
         </Header>
         <Content className='overflow-y-auto'>{children}</Content>
