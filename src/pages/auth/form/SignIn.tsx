@@ -1,63 +1,78 @@
-import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlined';
 import LockFilled from '@ant-design/icons/LockFilled';
 import MailFilled from '@ant-design/icons/MailFilled';
 import { Button, Form, Input } from 'antd';
-import React from 'react';
+import React, { Fragment, useState } from 'react';
 import { useMutation } from 'react-query';
-import { notification } from 'src/components/notification';
+import { TailwindUiNotification } from 'src/components/tailwindui/interface/notification';
+import Notification from 'src/components/tailwindui/notification';
 import { HttpError } from 'src/services/http-service';
+import { ApiError } from 'src/utilities/api-error';
 import { AuthAPI } from '../api/auth';
 import { LoginDTO } from '../interface/login-dto';
 
 const SignIn: React.FC = () => {
+  const [show, setShow] = useState<TailwindUiNotification>({
+    state: false,
+    status: null,
+    title: null,
+    description: null,
+  });
+
   const login = useMutation(AuthAPI.login, {
-    onSuccess: (data) => console.log(data),
-    onError: (_: HttpError) =>
-      notification({
-        icon: <ExclamationCircleOutlined className='text-danger' />,
-        message: '401 Unauthorized',
-        description: 'Hoy wala kang karapatan!',
-      }),
+    onSuccess: (data) => {
+      console.log(data);
+    },
+    onError: (error: HttpError) => {
+      setShow({
+        state: true,
+        status: 'error',
+        title: 'Unauthorized',
+        description: ApiError(error),
+      });
+    },
   });
 
   return (
-    <Form
-      className='my-5'
-      name='sign-in-form'
-      onFinish={async (values: LoginDTO) => {
-        await login.mutateAsync(values);
-      }}
-      layout='vertical'
-    >
-      <Form.Item
-        name='userName'
-        rules={[{ required: true, message: 'Please input your username!' }]}
+    <Fragment>
+      <Notification show={show} setShow={setShow} />
+      <Form<LoginDTO>
+        className='my-5'
+        name='sign-in-form'
+        onFinish={async (values) => {
+          await login.mutateAsync(values);
+        }}
+        layout='vertical'
       >
-        <Input
-          placeholder='Username or Email'
-          prefix={<MailFilled className='text-gray-300' />}
-        />
-      </Form.Item>
-      <Form.Item
-        name='password'
-        rules={[{ required: true, message: 'Please input your password!' }]}
-      >
-        <Input.Password
-          placeholder='Password'
-          prefix={<LockFilled className='text-gray-300' />}
-        />
-      </Form.Item>
-      <Form.Item className='mt-4'>
-        <Button
-          className='w-full font-semibold'
-          loading={login.isLoading}
-          type='primary'
-          htmlType='submit'
+        <Form.Item
+          name='userName'
+          rules={[{ required: true, message: 'Please input your username!' }]}
         >
-          LOGIN
-        </Button>
-      </Form.Item>
-    </Form>
+          <Input
+            placeholder='Username or Email'
+            prefix={<MailFilled className='text-gray-300' />}
+          />
+        </Form.Item>
+        <Form.Item
+          name='password'
+          rules={[{ required: true, message: 'Please input your password!' }]}
+        >
+          <Input.Password
+            placeholder='Password'
+            prefix={<LockFilled className='text-gray-300' />}
+          />
+        </Form.Item>
+        <Form.Item className='mt-4'>
+          <Button
+            className='w-full font-semibold'
+            loading={login.isLoading}
+            type='primary'
+            htmlType='submit'
+          >
+            LOGIN
+          </Button>
+        </Form.Item>
+      </Form>
+    </Fragment>
   );
 };
 

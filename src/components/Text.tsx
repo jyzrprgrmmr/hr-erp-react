@@ -1,5 +1,5 @@
 import { Typography } from 'antd';
 
-const { Text, Paragraph } = Typography;
+const { Text, Paragraph, Link } = Typography;
 
-export { Text, Paragraph };
+export { Text, Paragraph, Link };
