@@ -14,6 +14,7 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
     <Route
       {...rest}
       render={(props) => {
+<<<<<<< HEAD
         // if (true) {
         //   return (
         //     <Redirect
@@ -24,6 +25,18 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
         //     />
         //   );
         // }
+=======
+        if (false) {
+          return (
+            <Redirect
+              to={{
+                pathname: '/auth/login',
+                state: { from: props.location },
+              }}
+            />
+          );
+        }
+>>>>>>> 58dce223419c128e3f6dc2679f87f400c3454260
         return <Component {...props} />;
       }}
     />
